@@ -13,6 +13,17 @@ public class C206_CaseStudyTest {
 	
 	private ArrayList<Feedback> fbList;
 	
+	private Bike b1;
+	private Bike b2;
+	private Bike b3;
+	
+	private ArrayList<Bike> bList;
+	
+	private BikeParts bp1;
+	private BikeParts bp2;
+	private BikeParts bp3;
+	
+	private ArrayList<BikeParts> bpList;
 	@Before
 	public void setUp() throws Exception {
 		fb1 = new Feedback("@lice" , "Good customer service");
@@ -20,6 +31,12 @@ public class C206_CaseStudyTest {
 		fb3 = new Feedback("Bensoon", "Laggy website");
 		
 		fbList = new ArrayList<Feedback>();
+		
+		b1 = new Bike("A1", "Fuji", "Mountain Bike");
+		b2 = new Bike("A2", "YETI", "Road Bike");
+		b3 = new Bike("A3", "Gazelle", "Hybrid Bike");
+		bList = new ArrayList<Bike>();
+		bpList = new ArrayList<BikeParts>();
 	}
 
 	
@@ -84,12 +101,41 @@ public class C206_CaseStudyTest {
 
 	}
 	
+	@Test
+	public void testAddBike() {
+		// Item list is not null, so that can add a new item
+		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		C206_CaseStudy.addBike(bList, b1);		
+		assertEquals("Test if that Bike arraylist size is 1?", 1, bList.size());
+		
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Bike is added same as 1st item of the list?", b1, bList.get(0));
+		
+		//Add another item. test The size of the list is 2?
+		C206_CaseStudy.addBike(bList, b2);
+		C206_CaseStudy.addBike(bList, b3);
+		assertEquals("Test that Bike arraylist size is 3?", 3, bList.size());
+		assertSame("Test that Bike is added same as 3rd item of the list?", b3, bList.get(2));
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		fb1 = null;
 		fb2 = null;
 		fb3 = null;
 		fbList = null;
+		
+		b1 = null;
+		b2 = null;
+		b3 = null;
+		bList = null;
+		
+		bp1 = null;
+		bp2 = null;
+		bp3 = null;
+		bpList = null;
 	}
 
 }

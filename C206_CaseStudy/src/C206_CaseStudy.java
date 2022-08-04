@@ -146,7 +146,16 @@ public class C206_CaseStudy {
 	
 	
 //	OPTION 2 : BIKE 
-	
+//	============================= MENU FEEDBACK =============================
+	private static void bmenu() {
+		Helper.line(80, "=");
+		System.out.println("MENU");
+		Helper.line(80, "-");
+		System.out.println("1. View Bikes");
+		System.out.println("2. Add Bike");
+		System.out.println("3. Delete Bike");
+
+	}
 	
 //	OPTION 3 : BIKE PARTS
 	
