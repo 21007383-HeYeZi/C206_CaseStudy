@@ -155,7 +155,7 @@ public class C206_CaseStudy {
 	
 	
 //	OPTION 5 : FEEDBACK
-//	============================= VIEW FEEDBACK =============================
+//	============================= MENU FEEDBACK =============================
 	private static void fbmenu() {
 		Helper.line(80, "=");
 		System.out.println("MENU");
@@ -165,8 +165,6 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete Feedback");
 
 	}
-	
-	
 	
 //	============================= VIEW FEEDBACK =============================
 	public static String retrieveAllFb (ArrayList<Feedback> fbList) {

@@ -25,18 +25,18 @@ public class C206_CaseStudyTest {
 	
 	@Test
 	public void testAddFeedback() {
-		// Item list is not null, so that can add a new item
+		// Feedback list is not null, so that can add a new feedback
 		assertNotNull("Test if there is valid Feedback arraylist to add to", fbList);
 		
-		//Given an empty list, after adding 1 item, the size of the list is 1
+		//Given an empty list, after adding 1 feedback, the size of the list is 1
 		C206_CaseStudy.addFeedback(fbList, fb1);		
 		assertEquals("Test if that Feedback arraylist size is 1?", 1, fbList.size());
 		
 		
-		//The item just added is as same as the first item of the list
+		//The feedback just added is as same as the first feedback of the list
 		assertSame("Test that Feedback is added same as 1st item of the list?", fb1, fbList.get(0));
 		
-		//Add another item. test The size of the list is 2?
+		//Add another feedback. test The size of the list is 2?
 		C206_CaseStudy.addFeedback(fbList, fb2);
 		C206_CaseStudy.addFeedback(fbList, fb3);
 		assertEquals("Test that Feedback arraylist size is 3?", 3, fbList.size());
@@ -45,22 +45,26 @@ public class C206_CaseStudyTest {
 	
 	@Test
 	public void testRetrieveAllFb() {
-		// Test if Item list is not null but empty, so that can add a new item
+		// Test if Feedback list is not null but empty, so that can add a new feedback
 		assertNotNull("Test if there is valid Feedback arraylist to add to", fbList);
 		
-		//test if the list of feedback retrieved from the SourceCentre is empty
+		//test if the list of feedback retrieved from the C206_CaseStudy is empty
 		String allFeedback = C206_CaseStudy.retrieveAllFb(fbList);
 		String testOutput = "";
 		assertEquals("Check that viewAllFeedback", testOutput, allFeedback);
 				
-		//Given an empty list, after adding 2 items, test if the size of the list is 2
+		//Given an empty list, after adding 2 feedbacks, test if the size of the list is 2
 		C206_CaseStudy.addFeedback(fbList, fb1);
 		C206_CaseStudy.addFeedback(fbList, fb2);
 		assertEquals("Test if that Feedback arraylist size is 2?", 2, fbList.size());
 		
 	}
+	
 	@Test
 	public void testDeleteFeedback() {
+		// Test if Feedback list is not null but empty, so that can add a new feedback
+		assertNotNull("Test if there is valid Feedback arraylist to add to", fbList);
+		
 		// One Feedback added
 		C206_CaseStudy.addFeedback(fbList, fb1);
 		assertEquals("Check that Feedback arrayList size is 1?", 1, fbList.size());
