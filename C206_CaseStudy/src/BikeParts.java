@@ -2,12 +2,12 @@
 public class BikeParts {
 	private String assetTag;
 	private String brand;
-	private String desciption;
+	private String description;
 	
-	public BikeParts(String assetTag, String brand, String desciption) {
+	public BikeParts(String assetTag, String brand, String description) {
 		this.assetTag = assetTag;
 		this.brand = brand;
-		this.desciption = desciption;
+		this.description = description;
 	}
 
 	public String getAssetTag() {
@@ -26,12 +26,12 @@ public class BikeParts {
 		this.brand = brand;
 	}
 
-	public String getDesciption() {
-		return desciption;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesciption(String desciption) {
-		this.desciption = desciption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

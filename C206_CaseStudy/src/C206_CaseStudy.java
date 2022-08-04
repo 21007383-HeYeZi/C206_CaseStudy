@@ -11,6 +11,18 @@ public class C206_CaseStudy {
 		fbList.add(new Feedback("$ally", "Satisfied with purchase"));
 		fbList.add(new Feedback("Bensoon", "Laggy website"));
 		
+		ArrayList<Bike> bList = new ArrayList<Bike>();
+		
+		bList.add(new Bike("A1", "Fuji", "Mountain Bike"));
+		bList.add(new Bike("A2", "YETI", "Road Bike"));
+		bList.add(new Bike("A3", "Gazelle", "Hybrid Bike"));
+		
+		ArrayList<BikeParts> bpList = new ArrayList<BikeParts>();
+		
+		bList.add(new Bike("B1", "Mavic", "Wheel"));
+		bList.add(new Bike("B2", "Giant", "Frame"));
+		bList.add(new Bike("B3", "Zipp", "Handlebar"));
+			
 		int option = 0;
 		
 		while (option != 6) {
@@ -146,7 +158,7 @@ public class C206_CaseStudy {
 	
 	
 //	OPTION 2 : BIKE 
-//	============================= MENU FEEDBACK =============================
+//	============================= MENU BIKE =============================
 	private static void bmenu() {
 		Helper.line(80, "=");
 		System.out.println("MENU");
@@ -157,8 +169,139 @@ public class C206_CaseStudy {
 
 	}
 	
-//	OPTION 3 : BIKE PARTS
+//	============================= VIEW BIKE =============================
+	public static String retrieveAllb (ArrayList<Bike> bList) {
+		String output = "";
+
+		for (int i = 0; i < bList.size(); i++) {
+
+			output += String.format("%-10s %-10s %-30s\n", bList.get(i).getAssetTag(),
+					bList.get(i).getBrand(), bList.get(i).getDescription());
+		}
+		return output;
+
+	}
 	
+	public static void viewAllb(ArrayList<Bike> bList) {
+
+		String output = retrieveAllb(bList);
+		System.out.println(output);
+	}
+	
+//	============================= ADD BIKE =============================
+	public static Bike inpuBike() {
+		String assetTag = Helper.readString("Enter assetTag > ");
+		String brand = Helper.readString("Enter brand > ");
+		String description = Helper.readString("Enter description > ");
+
+		Bike newb = new Bike(assetTag, brand, description);
+		return newb;
+
+	}
+
+	public static void addBike(ArrayList<Bike> bList, Bike newb) {
+
+		bList.add(newb);
+
+	}
+	
+// ============================= DELETE BIKE =============================
+
+	public static void deleteBike(ArrayList<Bike> bList, Bike newb) {
+			
+		String assetTag = Helper.readString("Enter asset tag of bike to delete > ");
+		int a = 0;
+			
+		for (int i = 0; i < bList.size(); i++) {
+			if (bList.get(i).getAssetTag().equals(assetTag)) {
+				bList.remove(i);
+				a++;
+
+			} else {
+				a = 0;
+			}
+		}
+		if (a == 1) {
+			System.out.println("Bike Deleted!");
+		} else {
+			System.out.println("Bike not found!");
+		}
+
+
+	}
+	
+//	OPTION 3 : BIKE PARTS
+//	============================= MENU BIKE PARTS =============================
+	private static void bpmenu() {
+		Helper.line(80, "=");
+		System.out.println("MENU");
+		Helper.line(80, "-");
+		System.out.println("1. View Bike Parts");
+		System.out.println("2. Add Bike Part");
+		System.out.println("3. Delete Bike Part");
+
+	}
+	
+//	============================= VIEW BIKE PARTS =============================
+	public static String retrieveAllbp (ArrayList<BikeParts> bpList) {
+		String output = "";
+
+		for (int i = 0; i < bpList.size(); i++) {
+
+			output += String.format("%-10s %-10s %-30s\n", bpList.get(i).getAssetTag(),
+					bpList.get(i).getBrand(), bpList.get(i).getDescription());
+		}
+		return output;
+
+	}
+	
+	public static void viewAllbp(ArrayList<BikeParts> bpList) {
+
+		String output = retrieveAllbp(bpList);
+		System.out.println(output);
+	}
+	
+//	============================= ADD BIKE PARTS =============================
+	public static BikeParts inputBikeParts() {
+		String assetTag = Helper.readString("Enter assetTag > ");
+		String brand = Helper.readString("Enter brand > ");
+		String description = Helper.readString("Enter description > ");
+
+		BikeParts newbp = new BikeParts(assetTag, brand, description);
+		return newbp;
+
+	}
+
+	public static void addBikeParts(ArrayList<BikeParts> bpList, BikeParts newbp) {
+
+		bpList.add(newbp);
+
+	}
+	
+// ============================= DELETE BIKE PARTS =============================
+
+	public static void deleteBikeParts(ArrayList<BikeParts> bpList, BikeParts newbp) {
+			
+		String assetTag = Helper.readString("Enter asset tag of bike part to delete > ");
+		int a = 0;
+			
+		for (int i = 0; i < bpList.size(); i++) {
+			if (bpList.get(i).getAssetTag().equals(assetTag)) {
+				bpList.remove(i);
+				a++;
+
+			} else {
+				a = 0;
+			}
+		}
+		if (a == 1) {
+			System.out.println("Bike Part Deleted!");
+		} else {
+			System.out.println("Bike Part not found!");
+		}
+
+
+	}
 	
 //	OPTION 4 : APPOINTMENT
 	

@@ -35,10 +35,17 @@ public class C206_CaseStudyTest {
 		b1 = new Bike("A1", "Fuji", "Mountain Bike");
 		b2 = new Bike("A2", "YETI", "Road Bike");
 		b3 = new Bike("A3", "Gazelle", "Hybrid Bike");
+		
 		bList = new ArrayList<Bike>();
+		
+		bp1 = new BikeParts("B1", "Mavic", "Wheel");
+		bp2 = new BikeParts("B2", "Giant", "Frame");
+		bp3 = new BikeParts("B3", "Zipp", "Handlebar");
+		
 		bpList = new ArrayList<BikeParts>();
 	}
 
+// ============================= TEST FEEDBACK =============================
 	
 	@Test
 	public void testAddFeedback() {
@@ -101,6 +108,8 @@ public class C206_CaseStudyTest {
 
 	}
 	
+// ============================= TEST BIKE =============================	
+	
 	@Test
 	public void testAddBike() {
 		// Item list is not null, so that can add a new item
@@ -120,6 +129,114 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Bike is added same as 3rd item of the list?", b3, bList.get(2));
 	}
 	
+	@Test
+	public void testRetrieveAllb() {
+		// Test if Bike list is not null but empty, so that can add a new bike
+		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
+		
+		//test if the list of bikes retrieved from the C206_CaseStudy is empty
+		String allBikes = C206_CaseStudy.retrieveAllb(bList);
+		String testOutput = "";
+		assertEquals("Check that viewAllBikes", testOutput, allBikes);
+				
+		//Given an empty list, after adding 2 bikes, test if the size of the list is 2
+		C206_CaseStudy.addBike(bList, b1);
+		C206_CaseStudy.addBike(bList, b2);
+		assertEquals("Test if that Bike arraylist size is 2?", 2, bList.size());
+		
+	}
+	
+	@Test
+	public void testDeleteBike() {
+		// Test if Bike list is not null but empty, so that can add a new bike
+		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
+		
+		// One Bike added
+		C206_CaseStudy.addBike(bList, b1);
+		assertEquals("Check that Bike arrayList size is 1?", 1, bList.size());
+		
+		// One Feedback removed
+		C206_CaseStudy.deleteBike(bList, b1);
+		assertEquals("Check that Bike arrayList size is 1?", 0, bList.size());
+		
+		boolean exists = false;
+		for (Bike b : bList) {
+			if (b.equals(b1)) {
+				exists = true;
+			}
+		}
+		
+		assertFalse(exists);
+
+	}
+	
+// ============================= TEST BIKE PARTS =============================
+	
+	@Test
+	public void testAddBikeParts() {
+		// BikeParts list is not null, so that can add a new bike parts
+		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
+		
+		//Given an empty list, after adding 1 bike part, the size of the list is 1
+		C206_CaseStudy.addBikeParts(bpList, bp1);		
+		assertEquals("Test if that BikeParts arraylist size is 1?", 1, bpList.size());
+		
+		
+		//The bike part just added is as same as the first bike part of the list
+		assertSame("Test that Bike part is added same as 1st item of the list?", bp1, bpList.get(0));
+		
+		//Add another bike part. test The size of the list is 2?
+		C206_CaseStudy.addBikeParts(bpList, bp2);
+		C206_CaseStudy.addBikeParts(bpList, bp3);
+		assertEquals("Test that BikeParts arraylist size is 3?", 3, bpList.size());
+		assertSame("Test that Bike part is added same as 3rd item of the list?", bp3, bpList.get(2));
+	}
+	
+	@Test
+	public void testRetrieveAllbp() {
+		// Test if BikeParts list is not null but empty, so that can add a new bike part
+		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
+		
+		//test if the list of bike parts retrieved from the C206_CaseStudy is empty
+		String allBikeParts = C206_CaseStudy.retrieveAllbp(bpList);
+		String testOutput = "";
+		assertEquals("Check that viewAllBikeParts", testOutput, allBikeParts);
+				
+		//Given an empty list, after adding 2 bike parts, test if the size of the list is 2
+		C206_CaseStudy.addBikeParts(bpList, bp1);
+		C206_CaseStudy.addBikeParts(bpList, bp2);
+		assertEquals("Test if that BikeParts arraylist size is 2?", 2, bpList.size());
+		
+	}
+	
+	@Test
+	public void testDeleteBikeParts() {
+		// Test if BikeParts list is not null but empty, so that can add a new bike part
+		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
+		
+		// One bike part added
+		C206_CaseStudy.addBikeParts(bpList, bp1);
+		assertEquals("Check that BikeParts arrayList size is 1?", 1, bpList.size());
+		
+		// One bike part removed
+		C206_CaseStudy.deleteBikeParts(bpList, bp1);
+		assertEquals("Check that BikePart arrayList size is 1?", 0, bpList.size());
+		
+		boolean exists = false;
+		for (BikeParts bp : bpList) {
+			if (bp.equals(bp1)) {
+				exists = true;
+			}
+		}
+		
+		assertFalse(exists);
+
+	}
+	
+	
+// ============================= TEST REGISTRATION =============================
+	
+// ============================= TEST APPOINTMENT =============================
 	@After
 	public void tearDown() throws Exception {
 		fb1 = null;
