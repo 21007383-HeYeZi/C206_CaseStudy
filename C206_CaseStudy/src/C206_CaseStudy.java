@@ -194,9 +194,6 @@ public class C206_CaseStudy {
 //	OPTION 1 : REGISTRATION
 //	============================= MENU REGISTRATION =============================
 	private static void rmenu() {
-		Helper.line(80, "=");
-		System.out.println("Registration");
-		Helper.line(80, "-");
 		System.out.println("1. View Registration");
 		System.out.println("2. Add Registration");
 		System.out.println("3. Delete Registration");
@@ -266,9 +263,6 @@ public class C206_CaseStudy {
 //	OPTION 2 : BIKE 
 //	============================= MENU BIKE =============================
 	private static void bmenu() {
-		Helper.line(80, "=");
-		System.out.println("MENU");
-		Helper.line(80, "-");
 		System.out.println("1. View Bikes");
 		System.out.println("2. Add Bike");
 		System.out.println("3. Delete Bike");
@@ -340,9 +334,6 @@ public class C206_CaseStudy {
 //	OPTION 3 : BIKE PARTS
 //	============================= MENU BIKE PARTS =============================
 	private static void bpmenu() {
-		Helper.line(80, "=");
-		System.out.println("MENU");
-		Helper.line(80, "-");
 		System.out.println("1. View Bike Parts");
 		System.out.println("2. Add Bike Part");
 		System.out.println("3. Delete Bike Part");
@@ -413,9 +404,6 @@ public class C206_CaseStudy {
 //	OPTION 4 : APPOINTMENT
 //	============================= MENU APPOINTMENT =============================
 	private static void apptMenu() {
-		Helper.line(80, "=");
-		System.out.println("MENU");
-		Helper.line(80, "-");
 		System.out.println("1. View Appointment");
 		System.out.println("2. Add Appointment");
 		System.out.println("3. Delete Appointment");
@@ -487,9 +475,6 @@ public class C206_CaseStudy {
 //	OPTION 5 : FEEDBACK
 //	============================= MENU FEEDBACK =============================
 	private static void fbmenu() {
-		Helper.line(80, "=");
-		System.out.println("MENU");
-		Helper.line(80, "-");
 		System.out.println("1. View Feedbacks");
 		System.out.println("2. Add Feedback");
 		System.out.println("3. Delete Feedback");
