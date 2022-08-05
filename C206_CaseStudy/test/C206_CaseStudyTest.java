@@ -117,19 +117,19 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addFeedback(fbList, fb1);
 		assertEquals("Check that Feedback arrayList size is 1?", 1, fbList.size());
 		
-		// One Feedback removed
-		C206_CaseStudy.deleteFeedback(fbList, fb1);
+		// Invalid Feedback output 
+		String user = "P0lly";
+		String testOp = "Invalid username entered";
+		String msg = C206_CaseStudy.deleteFeedback(fbList, user);
+		assertEquals("Check that Feedback arrayList size is 1?", 1, fbList.size());
+		assertEquals("Test the message", testOp, msg);
+		
+		// Valid delete Feedback
+		user = fb1.getUsername();
+		testOp = user + " deleted successfully/";
+		msg = C206_CaseStudy.deleteFeedback(fbList, user);
 		assertEquals("Check that Feedback arrayList size is 0?", 0, fbList.size());
-		
-		boolean exists = false;
-		for (Feedback fb : fbList) {
-			if (fb.equals(fb1)) {
-				exists = true;
-			}
-		}
-		
-		assertFalse(exists);
-
+		assertEquals("Test the message", testOp, msg);
 	}
 	
 // ============================= TEST BIKE =============================	
