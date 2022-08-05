@@ -37,47 +37,49 @@ public class C206_CaseStudy {
 				
 			} else if (option == 2) {
 				C206_CaseStudy.setHeader("BIKE LISTINGS");
-//				bikeMenu(); - 1.View, 2.Add, 3.Remove Menu
-//				int bikeOp = Helper.readInt("Enter option to select function > ");
+				C206_CaseStudy.bmenu();
+				int bikeOp = Helper.readInt("Enter option to select function > ");
 				
-//				if (bikeOp == 1) {
+				if (bikeOp == 1) {
 					// View bike 
-//					C206_CaseStudy.viewAllBike(bikeList);
-//				
-//				} else if (bikeOp == 2) { 
-//					// Add bike 
-//					Bike newBike = inputBike();
-//					C206_CaseStudy.addBike(bikeList, newBike);
-//					System.out.println("Bike added");
-//				
-//				} else if (bikeOp == 3) { 
-//					// Delete bike
-//					
-//				} else {
-//					System.out.println("Invalid option!");
-//				
-			
+					C206_CaseStudy.viewAllb(bList);
+				
+				} else if (bikeOp == 2) { 
+					// Add bike 
+					Bike newb = inputBike();
+					C206_CaseStudy.addBike(bList, newb);
+					System.out.println("Bike added");
+				
+				} else if (bikeOp == 3) { 
+					// Delete bike
+					Bike newb = inputBike();
+					C206_CaseStudy.deleteBike(bList,  newb);
+				} else {
+					System.out.println("Invalid option!");
+				
+				
 			} else if (option == 3) {
 				C206_CaseStudy.setHeader("BIKE PARTS LISTINGS");
-//				bikePartsmenu(); - 1.View, 2.Add, 3.Remove Menu
-//				int bikeptOp = Helper.readInt("Enter option to select function > ");
+				C206_CaseStudy.bpmenu();
+				int bikeptOp = Helper.readInt("Enter option to select function > ");
 				
-//				if (bikeptOp == 1) {
+				if (bikeptOp == 1) {
 					// View bike parts
-//					C206_CaseStudy.viewAllBikept(bikeptList);
-//				
-//				} else if (bikeptOp == 2) { 
-//					// Add bike parts
-//					bikeParts newBikept = inputBikept();
-//					C206_CaseStudy.addBikept(bikeptList, newBikept);
-//					System.out.println("Bike Parts added");
-//				
-//				} else if (bikeptOp == 3) { 
-//					// Delete bike parts
-//					
-//				} else {
-//					System.out.println("Invalid option!");
-//				
+					C206_CaseStudy.viewAllbp(bpList);
+				
+				} else if (bikeptOp == 2) { 
+					// Add bike parts
+					BikeParts newbp = inputBikeParts();
+					C206_CaseStudy.addBikeParts(bpList, newbp);
+					System.out.println("Bike Parts added");
+				
+				} else if (bikeptOp == 3) { 
+					// Delete bike parts
+					BikeParts newbp = inputBikeParts();
+					C206_CaseStudy.deleteBikeParts(bpList,  newbp);
+				} else {
+					System.out.println("Invalid option!");
+				
 
 			} else if (option == 4) {
 				C206_CaseStudy.setHeader("APPOINTMENT");
@@ -189,7 +191,7 @@ public class C206_CaseStudy {
 	}
 	
 //	============================= ADD BIKE =============================
-	public static Bike inpuBike() {
+	public static Bike inputBike() {
 		String assetTag = Helper.readString("Enter assetTag > ");
 		String brand = Helper.readString("Enter brand > ");
 		String description = Helper.readString("Enter description > ");
