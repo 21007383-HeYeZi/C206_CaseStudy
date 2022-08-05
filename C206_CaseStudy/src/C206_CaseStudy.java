@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
@@ -22,6 +23,11 @@ public class C206_CaseStudy {
 		bList.add(new Bike("B1", "Mavic", "Wheel"));
 		bList.add(new Bike("B2", "Giant", "Frame"));
 		bList.add(new Bike("B3", "Zipp", "Handlebar"));
+		
+		ArrayList<Appointment> apptList = new ArrayList<Appointment>();
+		apptList.add(new Appointment("John", "5 Aug", "12pm", 91234567));
+		apptList.add(new Appointment("Mary", "6 Oct", "2pm", 87654321));
+		apptList.add(new Appointment("Tom", "12 Sept", "3pm", 92468101));
 			
 		int option = 0;
 		
@@ -84,25 +90,25 @@ public class C206_CaseStudy {
 
 			} else if (option == 4) {
 				C206_CaseStudy.setHeader("APPOINTMENT");
-//				ApptMenu(); - 1.View, 2.Add, 3.Remove Menu
-//				int apptOp = Helper.readInt("Enter option to select function > ");
+				apptMenu(); //- 1.View, 2.Add, 3.Remove Menu
+				int apptOp = Helper.readInt("Enter option to select function > ");
 				
-//				if (apptOp == 1) {
+				if (apptOp == 1) {
 					// View appointment
-//					C206_CaseStudy.viewAllAppt(apptList);
-//				
-//				} else if (apptOp == 2) { 
-//					// Add appointment
-//					Appointment newAppt = inputAppt();
-//					C206_CaseStudy.addAppt(apptList, newAppt);
-//					System.out.println("Appointment added");
-//				
-//				} else if (apptOp == 3) { 
-//					// Delete appointment
-//					
-//				} else {
-//					System.out.println("Invalid option!");
-//	
+					C206_CaseStudy.viewAllAppt(apptList);
+				
+				} else if (apptOp == 2) { 
+					// Add appointment
+					Appointment newAppt = inputAppt();
+					C206_CaseStudy.addAppt(apptList, newAppt);
+					System.out.println("Appointment added");
+				
+				} else if (apptOp == 3) { 
+					// Delete appointment
+					
+				} else {
+					System.out.println("Invalid option!");
+	
 			} else if (option == 5) {
 				C206_CaseStudy.setHeader("FEEDBACK");
 				C206_CaseStudy.fbmenu(); 
@@ -307,6 +313,76 @@ public class C206_CaseStudy {
 	}
 	
 //	OPTION 4 : APPOINTMENT
+//	============================= MENU APPOINTMENT =============================
+	private static void apptMenu() {
+		Helper.line(80, "=");
+		System.out.println("MENU");
+		Helper.line(80, "-");
+		System.out.println("1. View Appointment");
+		System.out.println("2. Add Appointment");
+		System.out.println("3. Delete Appointment");
+
+	}
+	
+//	============================= VIEW APPOINTMENT =============================
+	public static String retrieveAllAppt (ArrayList<Appointment> apptList) {
+		String output = "";
+
+		for (int i = 0; i < apptList.size(); i++) {
+
+			output += String.format("%-10s %-10s %-30s %-10d\n", apptList.get(i).getName(),
+					apptList.get(i).getDate(), apptList.get(i).getTime(), apptList.get(i).getMobileNumber());
+		}
+		return output;
+
+	}
+	
+	public static void viewAllAppt(ArrayList<Appointment> apptList) {
+
+		String output = viewAllAppt(apptList);
+		System.out.println(output);
+	}
+	
+//	============================= ADD APPOINTMENT =============================
+	public static Appointment inputAppt() {
+		String name = Helper.readString("Enter name > ");
+		String date = Helper.readString("Enter date > ");
+		String time = Helper.readString("Enter time > ");
+		int mobileNumber = Helper.readInt("Enter mobile number > ");
+
+		Appointment newApp = new Appointment(name, date, time, mobileNumber);
+		return newApp;
+
+	}
+
+	public static void addAppt(ArrayList<Appointment> apptList, Appointment newApp) {
+
+		apptList.add(newApp);
+
+	}
+	
+// ============================= DELETE APPOINTMENT =============================
+
+	public static void deleteAppointment(ArrayList<Appointment> apptList, Appointment newApp) {
+			
+		String appointment = Helper.readString("Enter appointment to delete > ");
+		int a = 0;
+			
+		for (int i = 0; i < apptList.size(); i++) {
+			if (apptList.get(i).getAppointment().equals(appointment)) {
+				apptList.remove(i);
+				a++;
+
+			} else {
+				a = 0;
+			}
+		}
+		if (a == 1) {
+			System.out.println("Appointment Deleted!");
+		} else {
+			System.out.println("Appointment not found!");
+		}
+	}
 	
 	
 //	OPTION 5 : FEEDBACK

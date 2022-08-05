@@ -1,19 +1,16 @@
-import java.sql.Time;
-import java.sql.Date;
-
 public class Appointment {
 
-	public Appointment(String name, Date date, Time time, int mobileNumebr) {
+	public Appointment(String name, String date, String time, int mobileNumber) {
 		this.name = name;
 		this.date = date;
 		this.time = time;
-		this.mobileNumebr = mobileNumebr;
+		this.mobileNumber = mobileNumber;
 	}
 
 	private String name;
-	private Date date;
-	private Time time;
-	private int mobileNumebr;
+	private String date;
+	private String time;
+	private int mobileNumber;
 
 	public String getName() {
 		return name;
@@ -23,28 +20,29 @@ public class Appointment {
 		this.name = name;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public Time getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
-	public int getMobileNumebr() {
-		return mobileNumebr;
+	public int getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setMobileNumebr(int mobileNumebr) {
-		this.mobileNumebr = mobileNumebr;
+	public void setMobileNumber(int mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
+
 
 }
