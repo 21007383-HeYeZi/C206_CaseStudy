@@ -287,7 +287,7 @@ public class C206_CaseStudyTest {
 	@Test 
 	public void testDeleteRegistration() {
 		// Test that Registration list is not null but empty, so that Registration can be added
-		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
+		assertNotNull("Test if there is valid Registration arraylist to add to", rList);
 			
 		// One registration added
 		C206_CaseStudy.addRegistration(rList, r1);
