@@ -33,9 +33,9 @@ public class C206_CaseStudy {
 
 		ArrayList<Registration> rList = new ArrayList<Registration>();
 		
-		rList.add(new Registration("92837842", "James"));
-		rList.add(new Registration("83726471", "John"));
-		rList.add(new Registration("82737482", "Jonathan"));
+		rList.add(new Registration("James", "92837842"));
+		rList.add(new Registration("Jason", "83726471"));
+		rList.add(new Registration("Jonathan", "82737482"));
 		
 		int option = 0;
 		
@@ -205,12 +205,12 @@ public class C206_CaseStudy {
 
 //	============================= VIEW REGISTRATION =============================
 	public static String retrieveAllR (ArrayList<Registration> rList) {
-		String output = "";
+		String output = String.format("%-10s %-30s\n", "NAME", "MOBILE NUMBER");
 
 		for (int i = 0; i < rList.size(); i++) {
 
-			output += String.format("%-10s %-30s\n", rList.get(i).getMobileNumber(),
-					rList.get(i).getName());
+			output += String.format("%-10s %-30s\n", rList.get(i).getName(),
+					rList.get(i).getMobileNumber());
 		}
 		return output;
 
@@ -224,10 +224,10 @@ public class C206_CaseStudy {
 	
 //	============================= ADD REGISTRATION =============================
 	public static Registration inputRegistration() {
-		String mobileNumber = Helper.readString("Enter Mobile Number > ");
 		String name = Helper.readString("Enter Name > ");
-
-		Registration newR = new Registration(mobileNumber, name);
+		String mobileNumber = Helper.readString("Enter Mobile Number > ");
+		
+		Registration newR = new Registration(name, mobileNumber);
 		return newR;
 
 	}
@@ -276,7 +276,7 @@ public class C206_CaseStudy {
 	
 //	============================= VIEW BIKE =============================
 	public static String retrieveAllb (ArrayList<Bike> bList) {
-		String output = "";
+		String output = String.format("%-10s %-10s %-30s\n", "ASSET TAG", "BRAND", "DESCRIPTION");
 
 		for (int i = 0; i < bList.size(); i++) {
 
@@ -346,7 +346,7 @@ public class C206_CaseStudy {
 	
 //	============================= VIEW BIKE PARTS =============================
 	public static String retrieveAllbp (ArrayList<BikeParts> bpList) {
-		String output = "";
+		String output = String.format("%-10s %-10s %-30s\n", "ASSET TAG", "BRAND", "DESCRIPTION");
 
 		for (int i = 0; i < bpList.size(); i++) {
 
@@ -416,7 +416,7 @@ public class C206_CaseStudy {
 	
 //	============================= VIEW APPOINTMENT =============================
 	public static String retrieveAllAppt (ArrayList<Appointment> apptList) {
-		String output = "";
+		String output = String.format("%-10s %-10s %-10s %-10s\n", "NAME", "DATE", "TIME", "MOBILE NUMBER");
 
 		for (int i = 0; i < apptList.size(); i++) {
 
@@ -487,7 +487,7 @@ public class C206_CaseStudy {
 	
 //	============================= VIEW FEEDBACK =============================
 	public static String retrieveAllFb (ArrayList<Feedback> fbList) {
-		String output = "";
+		String output = String.format("%-10s %-30s\n","USERNAME", "FEEDBACK");
 
 		for (int i = 0; i < fbList.size(); i++) {
 

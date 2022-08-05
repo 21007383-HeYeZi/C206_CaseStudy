@@ -3,9 +3,9 @@ public class Registration {
 	public String mobileNumber;
 	public String name;
 	
-	public Registration(String mobileNumber, String name) {
-		this.mobileNumber = mobileNumber;
+	public Registration(String name, String mobileNumber) {
 		this.name = name;
+		this.mobileNumber = mobileNumber;
 	}
 	
 	public String getName() {
