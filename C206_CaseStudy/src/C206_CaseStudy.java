@@ -157,7 +157,7 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-	
+		
 
 	private static void setHeader(String header) {
 		Helper.line(80, "-");
