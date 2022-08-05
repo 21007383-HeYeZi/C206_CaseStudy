@@ -56,6 +56,7 @@ public class C206_CaseStudy {
 					C206_CaseStudy.deleteBike(bList,  newb);
 				} else {
 					System.out.println("Invalid option!");
+				}
 				
 				
 			} else if (option == 3) {
@@ -79,7 +80,7 @@ public class C206_CaseStudy {
 					C206_CaseStudy.deleteBikeParts(bpList,  newbp);
 				} else {
 					System.out.println("Invalid option!");
-				
+				}
 
 			} else if (option == 4) {
 				C206_CaseStudy.setHeader("APPOINTMENT");

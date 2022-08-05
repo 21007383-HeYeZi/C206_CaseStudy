@@ -95,7 +95,7 @@ public class C206_CaseStudyTest {
 		
 		// One Feedback removed
 		C206_CaseStudy.deleteFeedback(fbList, fb1);
-		assertEquals("Check that Feedback arrayList size is 1?", 0, fbList.size());
+		assertEquals("Check that Feedback arrayList size is 0?", 0, fbList.size());
 		
 		boolean exists = false;
 		for (Feedback fb : fbList) {
@@ -155,9 +155,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addBike(bList, b1);
 		assertEquals("Check that Bike arrayList size is 1?", 1, bList.size());
 		
-		// One Feedback removed
+		// One Bike removed
 		C206_CaseStudy.deleteBike(bList, b1);
-		assertEquals("Check that Bike arrayList size is 1?", 0, bList.size());
+		assertEquals("Check that Bike arrayList size is 0?", 0, bList.size());
 		
 		boolean exists = false;
 		for (Bike b : bList) {
@@ -237,6 +237,7 @@ public class C206_CaseStudyTest {
 // ============================= TEST REGISTRATION =============================
 	
 // ============================= TEST APPOINTMENT =============================
+	
 	@After
 	public void tearDown() throws Exception {
 		fb1 = null;
