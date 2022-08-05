@@ -22,7 +22,13 @@ public class C206_CaseStudy {
 		bList.add(new Bike("B1", "Mavic", "Wheel"));
 		bList.add(new Bike("B2", "Giant", "Frame"));
 		bList.add(new Bike("B3", "Zipp", "Handlebar"));
-			
+		
+		ArrayList<Registration> rList = new ArrayList<Registration>();
+		
+		rList.add(new Registration("92837842", "James"));
+		rList.add(new Registration("83726471", "John"));
+		rList.add(new Registration("82737482", "Jonathan"));
+		
 		int option = 0;
 		
 		while (option != 6) {
@@ -31,9 +37,26 @@ public class C206_CaseStudy {
 			
 			if (option == 1) {
 				C206_CaseStudy.setHeader("REGISTRATION");
-//				Registration new = inputSignup();
-//				C206_CaseStudy.addSignup(memberList, new);
-//				System.out.println("Registration is successful!");
+				C206_CaseStudy.rmenu(); 
+				int rOp = Helper.readInt("Enter option to select function > ");
+				
+				if (rOp == 1) {
+					// View registration
+					C206_CaseStudy.viewAllR(rList);
+				
+				} else if (rOp == 2) { 
+					// Add registration
+					Registration newr = inputRegistration();
+					C206_CaseStudy.addRegistration(rList, newr);
+					System.out.println("Registration added");
+				
+				} else if (rOp == 3) { 
+					// Delete registration
+					Registration newr = inputRegistration();
+					C206_CaseStudy.deleteRegistration(rList, newr);
+				} else {
+					System.out.println("Invalid option!");
+				}
 				
 			} else if (option == 2) {
 				C206_CaseStudy.setHeader("BIKE LISTINGS");
@@ -134,6 +157,7 @@ public class C206_CaseStudy {
 			}
 		}
 	}
+	
 
 	private static void setHeader(String header) {
 		Helper.line(80, "-");
@@ -158,7 +182,76 @@ public class C206_CaseStudy {
 	}
 
 //	OPTION 1 : REGISTRATION
+//	============================= MENU REGISTRATION =============================
+	private static void rmenu() {
+		Helper.line(80, "=");
+		System.out.println("Registration");
+		Helper.line(80, "-");
+		System.out.println("1. View Registration");
+		System.out.println("2. Add Registration");
+		System.out.println("3. Delete Registration");
+
+	}
+
+//	============================= VIEW REGISTRATION =============================
+	public static String retrieveAllR (ArrayList<Registration> rList) {
+		String output = "";
+
+		for (int i = 0; i < rList.size(); i++) {
+
+			output += String.format("%-10s %-30s\n", rList.get(i).getMobileNumber(),
+					rList.get(i).getName());
+		}
+		return output;
+
+	}
 	
+	public static void viewAllR(ArrayList<Registration> rList) {
+
+		String output = retrieveAllR(rList);
+		System.out.println(output);
+	}
+	
+//	============================= ADD REGISTRATION =============================
+	public static Registration inputRegistration() {
+		String mobileNumber = Helper.readString("Enter Mobile Number > ");
+		String name = Helper.readString("Enter Name > ");
+
+		Registration newR = new Registration(mobileNumber, name);
+		return newR;
+
+	}
+
+	public static void addRegistration(ArrayList<Registration> rList, Registration newR) {
+
+		rList.add(newR);
+
+	}
+	
+// ============================= DELETE REGISTRATION =============================
+
+	public static void deleteRegistration(ArrayList<Registration> rList, Registration newR) {
+		
+		String mobileNumber = Helper.readString("Enter Mobile Number to delete > ");
+		int a = 0;
+		
+		for (int i = 0; i < rList.size(); i++) {
+			if (rList.get(i).getMobileNumber().equals(mobileNumber)) {
+				rList.remove(i);
+				a++;
+
+			} else {
+				a = 0;
+			}
+		}
+		if (a == 1) {
+			System.out.println("Registration Deleted!");
+		} else {
+			System.out.println("Registration not found!");
+		}
+
+
+	}
 	
 //	OPTION 2 : BIKE 
 //	============================= MENU BIKE =============================
@@ -171,6 +264,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete Bike");
 
 	}
+
 	
 //	============================= VIEW BIKE =============================
 	public static String retrieveAllb (ArrayList<Bike> bList) {
