@@ -29,6 +29,11 @@ public class C206_CaseStudyTest {
 	private Registration r2;
 	private Registration r3;
 	
+	private ArrayList<Appointment> apptList;
+	private Appointment a1;
+	private Appointment a2;
+	private Appointment a3;
+	
 	private ArrayList<Registration> rList;
 	
 	@Before
@@ -56,6 +61,12 @@ public class C206_CaseStudyTest {
 		r3 = new Registration("82737482", "Jonathan");
 		
 		rList = new ArrayList<Registration>();
+		
+		a1 = new Appointment("John", "5 Aug", "12pm", "91234567");
+		a2 = new Appointment("Mary", "6 Oct", "2pm", "87654321");
+		a3 = new Appointment("Tom", "12 Sept", "3pm", "92468101");
+		
+		apptList = new ArrayList<Appointment>();
 	}
 
 // ============================= TEST FEEDBACK =============================
@@ -306,9 +317,66 @@ public class C206_CaseStudyTest {
 		assertFalse(exists);
 	}
 			
-			
 
 // ============================= TEST APPOINTMENT =============================
+	@Test
+	public void testAddAppt() {
+		// Test that Appointment List is not null, so that Appointment can be added
+		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
+				
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		C206_CaseStudy.addAppt(apptList, a1);		
+		assertEquals("Test if that Appointment arraylist size is 1", 1, apptList.size());
+				
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Appointment added is same as 1st item of the list", a1, apptList.get(0));
+				
+		//Add another item. test The size of the list is 2?
+		C206_CaseStudy.addAppt(apptList, a2);
+		C206_CaseStudy.addAppt(apptList, a3);
+		assertEquals("Test that Appointment arraylist size is 3", 3, apptList.size());
+		assertSame("Test that Appointment added is same as 3rd item of the list", a3, apptList.get(2));
+	}
+	
+	@Test
+	public void testRetrieveAlla() {
+		// Test that Appointment list is not null but empty, so that Appointment can be added
+		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
+		
+		//test if the list of Appointments retrieved from the C206_CaseStudy is empty
+		String allAppt = C206_CaseStudy.retrieveAllAppt(apptList);
+		String testOutput = "";
+		assertEquals("Check that viewAllAppt", testOutput, allAppt);
+				
+		//Given an empty list, after adding 2 Appointment, test if the size of the list is 2
+		C206_CaseStudy.addAppt(apptList, a1);
+		C206_CaseStudy.addAppt(apptList, a2);
+		assertEquals("Test that the Appointment arraylist size is 2", 2, apptList.size());
+	}
+	
+	@Test 
+	public void testDeleteAppt() {
+		// Test that Appointment list is not null but empty, so that Appointment can be added
+		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
+			
+		// One Appointment added
+		C206_CaseStudy.addAppt(apptList, a1);
+		assertEquals("Check that Appointment arrayList size is 1", 1, apptList.size());
+			
+		// One Appointment removed
+		C206_CaseStudy.removeAppt(apptList, a1);
+		assertEquals("Check that Appointment arrayList size is 0", 0, apptList.size());
+			
+		boolean exists = false;
+		for (Appointment a : apptList) {
+			if (a.equals(a1)) {
+				exists = true;
+			}
+		}
+		assertFalse(exists);
+	}
+	
+	
 	
 	@After
 	public void tearDown() throws Exception {
