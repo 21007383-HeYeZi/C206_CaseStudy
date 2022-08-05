@@ -258,64 +258,69 @@ public class C206_CaseStudyTest {
 	}
 	
 	
-// ============================= TEST REGISTRATION =============================
+	// ============================= TEST REGISTRATION =============================
 	
-	@Test
-	public void testAddRegistration() {
-		// Test that Registration List is not null, so that Registration can be added
-		assertNotNull("Test if there is valid Registration arraylist to add to", rList);
-				
-		//Given an empty list, after adding 1 item, the size of the list is 1
-		C206_CaseStudy.addRegistration(rList, r1);		
-		assertEquals("Test if that Registration arraylist size is 1", 1, rList.size());
-				
-		//The item just added is as same as the first item of the list
-		assertSame("Test that registration added is same as 1st item of the list", r1, rList.get(0));
-				
-		//Add another item. test The size of the list is 2?
-		C206_CaseStudy.addRegistration(rList, r2);
-		C206_CaseStudy.addRegistration(rList, r3);
-		assertEquals("Test that Registration arraylist size is 3", 3, rList.size());
-		assertSame("Test that Registration added is same as 3rd item of the list", r3, rList.get(2));
-	}
-	
-	@Test
-	public void testRetrieveAllr() {
-		// Test that Registration list is not null but empty, so that Registration can be added
-		assertNotNull("Test if there is valid Registration arraylist to add to", rList);
-		
-		//test if the list of bike parts retrieved from the C206_CaseStudy is empty
-		String allRegistration = C206_CaseStudy.retrieveAllR(rList);
-		String testOutput = "";
-		assertEquals("Check that viewAllRegistration", testOutput, allRegistration);
-				
-		//Given an empty list, after adding 2 Registrations, test if the size of the list is 2
-		C206_CaseStudy.addRegistration(rList, r1);
-		C206_CaseStudy.addRegistration(rList, r2);
-		assertEquals("Test that the Registration arraylist size is 2", 2, rList.size());
-	}
-	
-	@Test 
-	public void testDeleteRegistration() {
-		// Test that Registration list is not null but empty, so that Registration can be added
-		assertNotNull("Test if there is valid Registration arraylist to add to", rList);
-			
-		// One registration added
-		C206_CaseStudy.addRegistration(rList, r1);
-		assertEquals("Check that Registration arrayList size is 1", 1, rList.size());
-			
-		// One registration removed
-		C206_CaseStudy.deleteRegistration(rList, r1);
-		assertEquals("Check that Registration arrayList size is 0", 0, rList.size());
-			
-		boolean exists = false;
-		for (Registration r : rList) {
-			if (r.equals(r1)) {
-				exists = true;
-			}
+		@Test
+		public void testAddRegistration() {
+			// Test that Registration List is not null, so that Registration can be added
+			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
+					
+			//Given an empty list, after adding 1 item, the size of the list is 1
+			C206_CaseStudy.addRegistration(rList, r1);		
+			assertEquals("Test if that Registration arraylist size is 1", 1, rList.size());
+					
+			//The item just added is as same as the first item of the list
+			assertSame("Test that registration added is same as 1st item of the list", r1, rList.get(0));
+					
+			//Add another item. test The size of the list is 2?
+			C206_CaseStudy.addRegistration(rList, r2);
+			C206_CaseStudy.addRegistration(rList, r3);
+			assertEquals("Test that Registration arraylist size is 3", 3, bList.size());
+			assertSame("Test that Registration added is same as 3rd item of the list", r3, rList.get(2));
 		}
-		assertFalse(exists);
-	}
+		
+		@Test
+		public void testRetrieveAllr() {
+			// Test that Registration list is not null but empty, so that Registration can be added
+			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
+			
+			//test if the list of bike parts retrieved from the C206_CaseStudy is empty
+			String allRegistration = C206_CaseStudy.retrieveAllR(rList);
+			String testOutput = "";
+			assertEquals("Check that viewAllRegistration", testOutput, allRegistration);
+					
+			//Given an empty list, after adding 2 Registrations, test if the size of the list is 2
+			C206_CaseStudy.addRegistration(rList, r1);
+			C206_CaseStudy.addRegistration(rList, r2);
+			assertEquals("Test that the Registration arraylist size is 2", 2, rList.size());
+		}
+		
+		@Test 
+		public void testDeleteRegistration() {
+			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
+			
+			C206_CaseStudy.addRegistration(rList, r1);
+			C206_CaseStudy.addRegistration(rList, r2);
+			C206_CaseStudy.addRegistration(rList, r3);
+			assertEquals("Test that Registration list have 3", 3, rList.size());
+			
+			String mobile = "91111111";
+			String testOutput = "Invalid Mobile Number entered";
+			String msg = C206_CaseStudy.deleteRegistration(rList, mobile);
+			assertEquals("Test that the first registration in the list is r1", r1, rList.get(0));
+			assertEquals("Test that the second registration in the list is r2", r1, rList.get(1));
+			assertEquals("Test that the third registration in the list is r3", r1, rList.get(2));
+			assertEquals("Test the message", testOutput, msg);
+			
+			mobile = r1.getMobileNumber();
+			testOutput = "Registration deleted";
+			msg = C206_CaseStudy.deleteRegistration(rList, mobile);
+			assertEquals("Test that registration list have 2 appointment", 2, rList.size());
+			assertSame("Test that the first appointment in the list is r2", r2, rList.get(0));
+			assertSame("Test that the second appointment in the list is r3", r3, rList.get(1));
+			assertEquals("Test the message", testOutput, msg);
+		}
+
 			
 
 // ============================= TEST APPOINTMENT =============================

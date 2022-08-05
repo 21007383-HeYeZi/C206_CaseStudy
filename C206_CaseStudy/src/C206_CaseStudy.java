@@ -57,11 +57,11 @@ public class C206_CaseStudy {
 					Registration newr = inputRegistration();
 					C206_CaseStudy.addRegistration(rList, newr);
 					System.out.println("Registration added");
-				
+
 				} else if (rOp == 3) { 
 					// Delete registration
-					Registration newr = inputRegistration();
-					C206_CaseStudy.deleteRegistration(rList, newr);
+					String mobile = Helper.readString("Enter mobile number to delete > ");
+					C206_CaseStudy.deleteRegistration(rList, mobile);
 				} else {
 					System.out.println("Invalid option!");
 				}
@@ -163,7 +163,7 @@ public class C206_CaseStudy {
 			} else if (option == 6) {
 				System.out.println("Bye!");
 			} else {
-				System.out.println("Invalid option");
+				System.out.println("Invalid option!");
 			}
 		}
 	}
@@ -194,6 +194,9 @@ public class C206_CaseStudy {
 //	OPTION 1 : REGISTRATION
 //	============================= MENU REGISTRATION =============================
 	private static void rmenu() {
+		Helper.line(80, "=");
+		System.out.println("Registration");
+		Helper.line(80, "-");
 		System.out.println("1. View Registration");
 		System.out.println("2. Add Registration");
 		System.out.println("3. Delete Registration");
@@ -237,27 +240,28 @@ public class C206_CaseStudy {
 	
 // ============================= DELETE REGISTRATION =============================
 
-	public static void deleteRegistration(ArrayList<Registration> rList, Registration newR) {
+	public static boolean doDeleteRegistration(ArrayList<Registration> rList, String mobileNumber) {
 		
-		String mobileNumber = Helper.readString("Enter Mobile Number to delete > ");
-		int a = 0;
+		boolean isDeleted = false;
 		
 		for (int i = 0; i < rList.size(); i++) {
 			if (rList.get(i).getMobileNumber().equals(mobileNumber)) {
 				rList.remove(i);
-				a++;
-
-			} else {
-				a = 0;
+				isDeleted = true;
 			}
 		}
-		if (a == 1) {
-			System.out.println("Registration Deleted!");
-		} else {
-			System.out.println("Registration not found!");
+		return isDeleted;
+	}
+	
+	public static String deleteRegistration(ArrayList<Registration> rList, String mobileNumber) {
+		C206_CaseStudy.retrieveAllR(rList);
+		String output = "Invalid mobile number entered!";
+		Boolean isDeleted = doDeleteRegistration(rList, mobileNumber);
+		if (isDeleted == true) {
+			output = "Registration Deleted";
 		}
-
-
+		System.out.println(output);
+		return output;
 	}
 	
 //	OPTION 2 : BIKE 
