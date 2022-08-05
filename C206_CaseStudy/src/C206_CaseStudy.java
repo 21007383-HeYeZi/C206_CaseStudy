@@ -20,9 +20,9 @@ public class C206_CaseStudy {
 		
 		ArrayList<BikeParts> bpList = new ArrayList<BikeParts>();
 		
-		bList.add(new Bike("B1", "Mavic", "Wheel"));
-		bList.add(new Bike("B2", "Giant", "Frame"));
-		bList.add(new Bike("B3", "Zipp", "Handlebar"));
+		bpList.add(new BikeParts("B1", "Mavic", "Wheel"));
+		bpList.add(new BikeParts("B2", "Giant", "Frame"));
+		bpList.add(new BikeParts("B3", "Zipp", "Handlebar"));
 		
 
 		ArrayList<Appointment> apptList = new ArrayList<Appointment>();
