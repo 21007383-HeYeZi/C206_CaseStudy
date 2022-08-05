@@ -275,7 +275,7 @@ public class C206_CaseStudyTest {
 			//Add another item. Test the size of the list is 2
 			C206_CaseStudy.addRegistration(rList, r2);
 			C206_CaseStudy.addRegistration(rList, r3);
-			assertEquals("Test that Registration arraylist size is 3", 3, bList.size());
+			assertEquals("Test that Registration arraylist size is 3", 3, rList.size());
 			assertSame("Test that Registration added is same as 3rd item of the list", r3, rList.get(2));
 		}
 		
