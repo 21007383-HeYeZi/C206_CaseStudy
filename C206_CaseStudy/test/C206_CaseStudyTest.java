@@ -71,7 +71,7 @@ public class C206_CaseStudyTest {
 
 // ============================= TEST FEEDBACK =============================
 	
-	@Test
+	
 	public void testAddFeedback() {
 		// Feedback list is not null, so that can add a new feedback
 		assertNotNull("Test if there is valid Feedback arraylist to add to", fbList);
@@ -91,7 +91,7 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Feedback is added same as 3rd item of the list?", fb3, fbList.get(2));
 	}
 	
-	@Test
+	
 	public void testRetrieveAllFb() {
 		// Test if Feedback list is not null but empty, so that can add a new feedback
 		assertNotNull("Test if there is valid Feedback arraylist to add to", fbList);
@@ -125,16 +125,16 @@ public class C206_CaseStudyTest {
 		assertEquals("Test the message", testOp, msg);
 		
 		// Valid delete Feedback
-		user = fb1.getUsername();
-		testOp = user + " deleted successfully/";
-		msg = C206_CaseStudy.deleteFeedback(fbList, user);
+		String userN = fb1.getUsername();
+		String testOpt = "Feedback for " + userN + " deleted";
+		String message = C206_CaseStudy.deleteFeedback(fbList, userN);
 		assertEquals("Check that Feedback arrayList size is 0?", 0, fbList.size());
-		assertEquals("Test the message", testOp, msg);
+		assertEquals("Test the message", testOpt, message);
 	}
 	
 // ============================= TEST BIKE =============================	
 	
-	@Test
+	
 	public void testAddBike() {
 		// Item list is not null, so that can add a new item
 		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
@@ -153,7 +153,7 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Bike is added same as 3rd item of the list?", b3, bList.get(2));
 	}
 	
-	@Test
+	
 	public void testRetrieveAllb() {
 		// Test if Bike list is not null but empty, so that can add a new bike
 		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
@@ -170,7 +170,7 @@ public class C206_CaseStudyTest {
 		
 	}
 	
-	@Test
+	
 	public void testDeleteBike() {
 		// Test if Bike list is not null but empty, so that can add a new bike
 		assertNotNull("Test if there is valid Bike arraylist to add to", bList);
@@ -196,7 +196,7 @@ public class C206_CaseStudyTest {
 	
 // ============================= TEST BIKE PARTS =============================
 	
-	@Test
+	
 	public void testAddBikeParts() {
 		// BikeParts list is not null, so that can add a new bike parts
 		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
@@ -216,7 +216,7 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Bike part is added same as 3rd item of the list?", bp3, bpList.get(2));
 	}
 	
-	@Test
+	
 	public void testRetrieveAllbp() {
 		// Test if BikeParts list is not null but empty, so that can add a new bike part
 		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
@@ -233,7 +233,7 @@ public class C206_CaseStudyTest {
 		
 	}
 	
-	@Test
+	
 	public void testDeleteBikeParts() {
 		// Test if BikeParts list is not null but empty, so that can add a new bike part
 		assertNotNull("Test if there is valid BikeParts arraylist to add to", bpList);
@@ -260,7 +260,7 @@ public class C206_CaseStudyTest {
 	
 	// ============================= TEST REGISTRATION =============================
 	
-		@Test
+		
 		public void testAddRegistration() {
 			// Test that Registration List is not null, so that Registration can be added
 			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
@@ -279,7 +279,7 @@ public class C206_CaseStudyTest {
 			assertSame("Test that Registration added is same as 3rd item of the list", r3, rList.get(2));
 		}
 		
-		@Test
+		
 		public void testRetrieveAllr() {
 			// Test that Registration list is not null but empty, so that Registration can be added
 			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
@@ -295,7 +295,7 @@ public class C206_CaseStudyTest {
 			assertEquals("Test that the Registration arraylist size is 2", 2, rList.size());
 		}
 		
-		@Test 
+		 
 		public void testDeleteRegistration() {
 			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
 			
@@ -324,7 +324,7 @@ public class C206_CaseStudyTest {
 			
 
 // ============================= TEST APPOINTMENT =============================
-	@Test
+	
 	public void testAddAppt() {
 		// Test that Appointment List is not null, so that Appointment can be added
 		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
@@ -343,7 +343,7 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Appointment added is same as 3rd item of the list", a3, apptList.get(2));
 	}
 	
-	@Test
+	
 	public void testRetrieveAlla() {
 		// Test that Appointment list is not null but empty, so that Appointment can be added
 		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
@@ -359,7 +359,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that the Appointment arraylist size is 2", 2, apptList.size());
 	}
 	
-	@Test 
+	 
 	public void testDeleteAppt() {
 		// Test that Appointment list is not null but empty, so that Appointment can be added
 		assertNotNull("Test if there is valid Appointment arraylist to add to", apptList);
