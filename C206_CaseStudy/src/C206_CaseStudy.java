@@ -522,33 +522,33 @@ public class C206_CaseStudy {
 	
 	// ============================= DELETE FEEDBACK =============================
 
-		public static boolean removeFeedback(ArrayList<Feedback> fbList, String userName){
-			
-			boolean isDeleted = false;
-			
-			for (int i = 0; i < fbList.size(); i++) {
-				if (fbList.get(i).getUsername().equals(userName)) {
-					fbList.remove(i);
-					isDeleted = true;
-
-				} else {
-					isDeleted = false;
-				}
-			}
-			return isDeleted;
-
-		} 
+	public static boolean removeFeedback(ArrayList<Feedback> fbList, String userName){
 		
-		public static String deleteFeedback(ArrayList<Feedback> fbList, String searchFeedback) {
-			C206_CaseStudy.retrieveAllFb(fbList);
-			String output = "Invalid username entered";
-			Boolean isDeleted = removeFeedback(fbList, searchFeedback);
-			
-			if (isDeleted == true) {
-				output = "Appointmnet for " + searchFeedback + "deleted";
+		boolean isDeleted = false;
+		
+		for (int i = 0; i < fbList.size(); i++) {
+			if (fbList.get(i).getUsername().equals(userName)) {
+				fbList.remove(i);
+				isDeleted = true;
 			}
-			return output;
-		}	
+		}
+		return isDeleted;
+
+	} 
+	
+	public static String deleteFeedback(ArrayList<Feedback> fbList, String searchFeedback) {
+		C206_CaseStudy.retrieveAllFb(fbList);
+		String output = "";
+		Boolean isDeleted = removeFeedback(fbList, searchFeedback);
+		
+		if (isDeleted == true) {
+			output = "Feedback for " + searchFeedback + " deleted";
+		} else {
+			output = "Invalid username entered";
+		}
+		System.out.println(output);
+		return output;
+	}	
 	
 	
 
