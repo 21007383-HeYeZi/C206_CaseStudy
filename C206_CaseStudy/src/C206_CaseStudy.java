@@ -204,7 +204,7 @@ public class C206_CaseStudy {
 	}
 
 //	============================= VIEW REGISTRATION =============================
-	public static String retrieveAllR (ArrayList<Registration> rList) {
+	public static String retrieveAllR(ArrayList<Registration> rList) {
 		String output = "";
 
 		for (int i = 0; i < rList.size(); i++) {
@@ -255,7 +255,7 @@ public class C206_CaseStudy {
 	
 	public static String deleteRegistration(ArrayList<Registration> rList, String mobileNumber) {
 		C206_CaseStudy.retrieveAllR(rList);
-		String output = "Invalid mobile number entered!";
+		String output = "Invalid mobile number entered!re";
 		Boolean isDeleted = doDeleteRegistration(rList, mobileNumber);
 		if (isDeleted == true) {
 			output = "Registration Deleted";

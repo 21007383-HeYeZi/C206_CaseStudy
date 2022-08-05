@@ -284,7 +284,7 @@ public class C206_CaseStudyTest {
 			// Test that Registration list is not null but empty, so that Registration can be added
 			assertNotNull("Test if there is valid Registration arraylist to add to", rList);
 			
-			//test if the list of bike parts retrieved from the C206_CaseStudy is empty
+			// Test that the Registration list retrieved from the C206_CaseStudy is empty
 			String allRegistration = C206_CaseStudy.retrieveAllR(rList);
 			String testOutput = "";
 			assertEquals("Check that viewAllRegistration", testOutput, allRegistration);
