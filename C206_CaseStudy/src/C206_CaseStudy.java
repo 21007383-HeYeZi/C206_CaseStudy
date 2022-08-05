@@ -204,8 +204,13 @@ public class C206_CaseStudy {
 	}
 
 //	============================= VIEW REGISTRATION =============================
+<<<<<<< HEAD
 	public static String retrieveAllR (ArrayList<Registration> rList) {
 		String output = String.format("%-10s %-30s\n", "NAME", "MOBILE NUMBER");
+=======
+	public static String retrieveAllR(ArrayList<Registration> rList) {
+		String output = "";
+>>>>>>> branch 'master' of https://github.com/21007383-HeYeZi/C206_CaseStudy.git
 
 		for (int i = 0; i < rList.size(); i++) {
 
@@ -255,7 +260,7 @@ public class C206_CaseStudy {
 	
 	public static String deleteRegistration(ArrayList<Registration> rList, String mobileNumber) {
 		C206_CaseStudy.retrieveAllR(rList);
-		String output = "Invalid mobile number entered!";
+		String output = "Invalid mobile number entered!re";
 		Boolean isDeleted = doDeleteRegistration(rList, mobileNumber);
 		if (isDeleted == true) {
 			output = "Registration Deleted";
