@@ -1,6 +1,6 @@
 public class Appointment {
 
-	public Appointment(String name, String date, String time, int mobileNumber) {
+	public Appointment(String name, String date, String time, String mobileNumber) {
 		this.name = name;
 		this.date = date;
 		this.time = time;
@@ -10,7 +10,7 @@ public class Appointment {
 	private String name;
 	private String date;
 	private String time;
-	private int mobileNumber;
+	private String mobileNumber;
 
 	public String getName() {
 		return name;
@@ -36,11 +36,11 @@ public class Appointment {
 		this.time = time;
 	}
 
-	public int getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(int mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

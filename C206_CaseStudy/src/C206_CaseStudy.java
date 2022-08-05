@@ -26,9 +26,9 @@ public class C206_CaseStudy {
 		
 
 		ArrayList<Appointment> apptList = new ArrayList<Appointment>();
-		apptList.add(new Appointment("John", "5 Aug", "12pm", 91234567));
-		apptList.add(new Appointment("Mary", "6 Oct", "2pm", 87654321));
-		apptList.add(new Appointment("Tom", "12 Sept", "3pm", 92468101));
+		apptList.add(new Appointment("John", "5 Aug", "12pm", "91234567"));
+		apptList.add(new Appointment("Mary", "6 Oct", "2pm", "87654321"));
+		apptList.add(new Appointment("Tom", "12 Sept", "3pm", "92468101"));
 			
 
 		ArrayList<Registration> rList = new ArrayList<Registration>();
@@ -131,7 +131,7 @@ public class C206_CaseStudy {
 				} else if (apptOp == 3) { 
 					// Delete appointment
 					Appointment newAppt = inputAppt();
-					C206_CaseStudy.deleteAppt(bpList,  newAppt);
+					C206_CaseStudy.removeAppt(apptList,  newAppt);
 				} else {
 					System.out.println("Invalid option!");
 				}
@@ -428,7 +428,7 @@ public class C206_CaseStudy {
 
 		for (int i = 0; i < apptList.size(); i++) {
 
-			output += String.format("%-10s %-10s %-30s %-10d\n", apptList.get(i).getName(),
+			output += String.format("%-10s %-10s %-10s %-10s\n", apptList.get(i).getName(),
 					apptList.get(i).getDate(), apptList.get(i).getTime(), apptList.get(i).getMobileNumber());
 		}
 		return output;
@@ -437,7 +437,7 @@ public class C206_CaseStudy {
 	
 	public static void viewAllAppt(ArrayList<Appointment> apptList) {
 
-		String output = viewAllAppt(apptList);
+		String output = retrieveAllAppt(apptList);
 		System.out.println(output);
 	}
 	
@@ -446,7 +446,7 @@ public class C206_CaseStudy {
 		String name = Helper.readString("Enter name > ");
 		String date = Helper.readString("Enter date > ");
 		String time = Helper.readString("Enter time > ");
-		int mobileNumber = Helper.readInt("Enter mobile number > ");
+		String mobileNumber = Helper.readString("Enter mobile number > ");
 
 		Appointment newApp = new Appointment(name, date, time, mobileNumber);
 		return newApp;
@@ -461,11 +461,11 @@ public class C206_CaseStudy {
 	
 // ============================= DELETE APPOINTMENT =============================
 
-	public static void deleteAppt(ArrayList<Appointment> apptList, Appointment newApp) {
+	public static boolean removeAppt(ArrayList<Appointment> apptList, Appointment newApp) {
 			
-		String mobileNumber = Helper.readString("Enter mobile number for appointment to delete > ");
+		String mobileNumber = Helper.readString("Enter Mobile Number to delete appointment > ");
 		int a = 0;
-			
+		
 		for (int i = 0; i < apptList.size(); i++) {
 			if (apptList.get(i).getMobileNumber().equals(mobileNumber)) {
 				apptList.remove(i);
@@ -476,12 +476,13 @@ public class C206_CaseStudy {
 			}
 		}
 		if (a == 1) {
-			System.out.println("Appointment Deleted!");
+			System.out.println("Registration Deleted!");
 		} else {
-			System.out.println("Appointment not found!");
+			System.out.println("Registration not found!");
 		}
-	}
-	
+		return false;
+	}	
+		
 	
 //	OPTION 5 : FEEDBACK
 //	============================= MENU FEEDBACK =============================
