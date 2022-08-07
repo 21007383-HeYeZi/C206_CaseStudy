@@ -509,7 +509,7 @@ public class C206_CaseStudy {
 	public static Feedback inputFeedback() {
 		String username = Helper.readString("Enter username > ");
 		String comment = Helper.readString("Enter Feedback > ");
-		double rating = Helper.readDouble("Enter Rating (1-5) > ");
+		double rating = Helper.readDouble("Enter Rating (1.0-5.0) > ");
 
 		Feedback newFb = new Feedback(username, comment, rating);
 		return newFb;
@@ -552,6 +552,4 @@ public class C206_CaseStudy {
 		return output;
 	}	
 	
-	
-
 }
