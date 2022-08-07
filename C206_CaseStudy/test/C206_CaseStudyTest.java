@@ -38,9 +38,9 @@ public class C206_CaseStudyTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		fb1 = new Feedback("@lice" , "Good customer service");
-		fb2 = new Feedback("$ally", "Satisfied with purchase");
-		fb3 = new Feedback("Bensoon", "Laggy website");
+		fb1 = new Feedback("@lice" , "Good customer service", 5.0);
+		fb2 = new Feedback("$ally", "Satisfied with purchase", 4.0);
+		fb3 = new Feedback("Bensoon", "Laggy website", 1.0);
 		
 		fbList = new ArrayList<Feedback>();
 		
@@ -84,7 +84,7 @@ public class C206_CaseStudyTest {
 		//The feedback just added is as same as the first feedback of the list
 		assertSame("Test that Feedback is added same as 1st item of the list?", fb1, fbList.get(0));
 		
-		//Add another feedback. test The size of the list is 2?
+		//Add another feedback. test The size of the list is 3?
 		C206_CaseStudy.addFeedback(fbList, fb2);
 		C206_CaseStudy.addFeedback(fbList, fb3);
 		assertEquals("Test that Feedback arraylist size is 3?", 3, fbList.size());
@@ -323,6 +323,7 @@ public class C206_CaseStudyTest {
 			assertEquals("Test the message", testOutput, msg);
 }
 
+	
 				
 
 // ============================= TEST APPOINTMENT =============================

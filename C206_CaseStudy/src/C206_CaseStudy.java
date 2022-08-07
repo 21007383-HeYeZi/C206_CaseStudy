@@ -8,9 +8,9 @@ public class C206_CaseStudy {
 		
 		ArrayList<Feedback> fbList = new ArrayList<Feedback>();
 		
-		fbList.add(new Feedback("@lice" , "Good customer service"));
-		fbList.add(new Feedback("$ally", "Satisfied with purchase"));
-		fbList.add(new Feedback("Bensoon", "Laggy website"));
+		fbList.add(new Feedback("@lice" , "Good customer service", 5.0));
+		fbList.add(new Feedback("$ally", "Satisfied with purchase", 4.0));
+		fbList.add(new Feedback("Bensoon", "Laggy website", 1.0));
 		
 		ArrayList<Bike> bList = new ArrayList<Bike>();
 		
@@ -491,8 +491,8 @@ public class C206_CaseStudy {
 
 		for (int i = 0; i < fbList.size(); i++) {
 
-			output += String.format("%-10s %-30s\n", fbList.get(i).getUsername(),
-					fbList.get(i).getComment());
+			output += String.format("%-10s %-30s %-30.1f\n", fbList.get(i).getUsername(),
+					fbList.get(i).getComment(), fbList.get(i).getRating());
 		}
 		return output;
 
@@ -500,7 +500,8 @@ public class C206_CaseStudy {
 	
 	public static void viewAllFb(ArrayList<Feedback> fbList) {
 
-		String output = retrieveAllFb(fbList);
+		String output = String.format("%-10s %-30s %-30s\n", "USERNAME", "FEEDBACK", "RATING"); 
+		output += retrieveAllFb(fbList);
 		System.out.println(output);
 	}
 	
@@ -508,8 +509,9 @@ public class C206_CaseStudy {
 	public static Feedback inputFeedback() {
 		String username = Helper.readString("Enter username > ");
 		String comment = Helper.readString("Enter Feedback > ");
+		double rating = Helper.readDouble("Enter Rating (1-5) > ");
 
-		Feedback newFb = new Feedback(username, comment);
+		Feedback newFb = new Feedback(username, comment, rating);
 		return newFb;
 
 	}
