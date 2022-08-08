@@ -3,6 +3,28 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy {
 
+	private static final int DELETE_FEEDBACK = 3;
+	private static final int ADD_FEEDBACK = 2;
+	private static final int VIEW_FEEDBACK = 1;
+	private static final int FEEDBACK_OPTION = 5;
+	private static final int DELETE_APPOINTMENT = 3;
+	private static final int ADD_APPOINTMENT = 2;
+	private static final int VIEW_APPOINTMENT = 1;
+	private static final int APPOINTMENT_OPTION = 4;
+	private static final int DELETE_BIKEPARTS = 3;
+	private static final int ADD_BIKEPARTS = 2;
+	private static final int VIEW_BIKEPARTS = 1;
+	private static final int BIKEPARTS_OPTION = 3;
+	private static final int DELETE_BIKE = 3;
+	private static final int ADD_BIKE = 2;
+	private static final int VIEW_BIKE = 1;
+	private static final int BIKE_OPTION = 2;
+	private static final int DELETE_REGESTRATION = 3;
+	private static final int ADD_REGISTRATION = 2;
+	private static final int VIEW_REGISTRATION = 1;
+	private static final int REGISTRATION_OPTION = 1;
+	private static final int OPTION_QUIT = 6;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -39,26 +61,26 @@ public class C206_CaseStudy {
 		
 		int option = 0;
 		
-		while (option != 6) {
+		while (option != OPTION_QUIT) {
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 			
-			if (option == 1) {
+			if (option == REGISTRATION_OPTION) {
 				C206_CaseStudy.setHeader("REGISTRATION");
 				C206_CaseStudy.rmenu(); 
 				int rOp = Helper.readInt("Enter option to select function > ");
 				
-				if (rOp == 1) {
+				if (rOp == VIEW_REGISTRATION) {
 					// View registration
 					C206_CaseStudy.viewAllR(rList);
 				
-				} else if (rOp == 2) { 
+				} else if (rOp == ADD_REGISTRATION) { 
 					// Add registration
 					Registration newr = inputRegistration();
 					C206_CaseStudy.addRegistration(rList, newr);
 					System.out.println("Registration added");
 
-				} else if (rOp == 3) { 
+				} else if (rOp == DELETE_REGESTRATION) { 
 					// Delete registration
 					String mobile = Helper.readString("Enter mobile number to delete > ");
 					C206_CaseStudy.deleteRegistration(rList, mobile);
@@ -66,22 +88,22 @@ public class C206_CaseStudy {
 					System.out.println("Invalid option!");
 				}
 				
-			} else if (option == 2) {
+			} else if (option == BIKE_OPTION) {
 				C206_CaseStudy.setHeader("BIKE LISTINGS");
 				C206_CaseStudy.bmenu();
 				int bikeOp = Helper.readInt("Enter option to select function > ");
 				
-				if (bikeOp == 1) {
+				if (bikeOp == VIEW_BIKE) {
 					// View bike 
 					C206_CaseStudy.viewAllb(bList);
 				
-				} else if (bikeOp == 2) { 
+				} else if (bikeOp == ADD_BIKE) { 
 					// Add bike 
 					Bike newb = inputBike();
 					C206_CaseStudy.addBike(bList, newb);
 					System.out.println("Bike added");
 				
-				} else if (bikeOp == 3) { 
+				} else if (bikeOp == DELETE_BIKE) { 
 					// Delete bike
 					Bike newb = inputBike();
 					C206_CaseStudy.deleteBike(bList,  newb);
@@ -90,22 +112,22 @@ public class C206_CaseStudy {
 				}
 				
 				
-			} else if (option == 3) {
+			} else if (option == BIKEPARTS_OPTION) {
 				C206_CaseStudy.setHeader("BIKE PARTS LISTINGS");
 				C206_CaseStudy.bpmenu();
 				int bikeptOp = Helper.readInt("Enter option to select function > ");
 				
-				if (bikeptOp == 1) {
+				if (bikeptOp == VIEW_BIKEPARTS) {
 					// View bike parts
 					C206_CaseStudy.viewAllbp(bpList);
 				
-				} else if (bikeptOp == 2) { 
+				} else if (bikeptOp == ADD_BIKEPARTS) { 
 					// Add bike parts
 					BikeParts newbp = inputBikeParts();
 					C206_CaseStudy.addBikeParts(bpList, newbp);
 					System.out.println("Bike Parts added");
 				
-				} else if (bikeptOp == 3) { 
+				} else if (bikeptOp == DELETE_BIKEPARTS) { 
 					// Delete bike parts
 					BikeParts newbp = inputBikeParts();
 					C206_CaseStudy.deleteBikeParts(bpList,  newbp);
@@ -113,22 +135,22 @@ public class C206_CaseStudy {
 					System.out.println("Invalid option!");
 				}
 
-			} else if (option == 4) {
+			} else if (option == APPOINTMENT_OPTION) {
 				C206_CaseStudy.setHeader("APPOINTMENT");
 				apptMenu(); //- 1.View, 2.Add, 3.Remove Menu
 				int apptOp = Helper.readInt("Enter option to select function > ");
 				
-				if (apptOp == 1) {
+				if (apptOp == VIEW_APPOINTMENT) {
 					// View appointment
 					C206_CaseStudy.viewAllAppt(apptList);
 				
-				} else if (apptOp == 2) { 
+				} else if (apptOp == ADD_APPOINTMENT) { 
 					// Add appointment
 					Appointment newAppt = inputAppt();
 					C206_CaseStudy.addAppt(apptList, newAppt);
 					System.out.println("Appointment added");
 				
-				} else if (apptOp == 3) { 
+				} else if (apptOp == DELETE_APPOINTMENT) { 
 					// Delete appointment
 					Appointment newAppt = inputAppt();
 					C206_CaseStudy.removeAppt(apptList,  newAppt);
@@ -136,22 +158,22 @@ public class C206_CaseStudy {
 					System.out.println("Invalid option!");
 				}
 	
-			} else if (option == 5) {
+			} else if (option == FEEDBACK_OPTION) {
 				C206_CaseStudy.setHeader("FEEDBACK");
 				C206_CaseStudy.fbmenu(); 
 				int fbOp = Helper.readInt("Enter option to select function > ");
 				
-				if (fbOp == 1) {
+				if (fbOp == VIEW_FEEDBACK) {
 					// View feedback
 					C206_CaseStudy.viewAllFb(fbList);
 				
-				} else if (fbOp == 2) { 
+				} else if (fbOp == ADD_FEEDBACK) { 
 					// Add feedback
 					Feedback newFb = inputFeedback();
 					C206_CaseStudy.addFeedback(fbList, newFb);
 					System.out.println("Feedback added");
 				
-				} else if (fbOp == 3) { 
+				} else if (fbOp == DELETE_FEEDBACK) { 
 					// Delete feedback
 					String username = Helper.readString("Enter username > ");
 					C206_CaseStudy.deleteFeedback(fbList, username);
